@@ -65,3 +65,7 @@ path = ~/CanBoot
 origin = https://github.com/Arksine/CanBoot.git
 is_system_service = False
 
+[spoolman]
+server = http://10.0.1.51:7912
+sync_rate = 6
+
