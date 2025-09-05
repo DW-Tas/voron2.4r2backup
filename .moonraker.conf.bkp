@@ -12,6 +12,7 @@ cors_domains =
 	http://my.mainsail.xyz
 	http://*.local
 	http://*.lan
+	*://localhost
 trusted_clients = 
 	10.0.0.0/8
 	127.0.0.0/8
@@ -35,8 +36,8 @@ enable_auto_refresh = True
 
 [update_manager mainsail]
 type = web
-channel = stable
-repo = mainsail-crew/mainsail
+channel = beta
+repo = ammmze/mainsail
 path = ~/mainsail
 
 [update_manager crowsnest]
