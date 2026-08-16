@@ -1,13 +1,7 @@
-# Happy Hare MMU includes (should be near top of file)
-[include mmu/base/*.cfg]
-[include mmu/macros/*.cfg]
 [include mainsail.cfg]
 [include goose_purge.cfg]
 [include stealthburner_leds.cfg]
 [include dw_macros.cfg]
-
-# Happy Hare Client macros (should be after last include or other PAUSE/CANCEL macros)
-[include mmu/optional/client_macros.cfg]
 
 [virtual_sdcard]
 path: ~/printer_data/gcodes             # Path to the virtual SD card directory

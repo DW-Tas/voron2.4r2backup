@@ -108,15 +108,3 @@ primary_branch: main
 path: ~/goose_purge_macro
 origin: https://github.com/Graylag-PD/Goose-Purge-Macro.git
 managed_services: klipper
-
-[update_manager happy-hare]
-type: git_repo
-path: /home/pi/Happy-Hare
-origin: https://github.com/moggieuk/Happy-Hare.git
-primary_branch: main
-managed_services: klipper
-
-[mmu_server]
-enable_file_preprocessor: True
-enable_toolchange_next_pos: True
-update_spoolman_location: True
