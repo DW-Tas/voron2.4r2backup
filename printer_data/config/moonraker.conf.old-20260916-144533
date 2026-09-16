@@ -1,0 +1,134 @@
+[server]
+host: 0.0.0.0
+port: 7125
+klippy_uds_address: /home/pi/printer_data/comms/klippy.sock
+
+[authorization]
+trusted_clients:
+    10.0.0.0/16
+    10.0.0.0/8
+    127.0.0.0/8
+    169.254.0.0/16
+    172.16.0.0/12
+    192.168.0.0/16
+    FC00::/7
+    FE80::/10
+    ::1/128
+cors_domains:
+    *.lan
+    *.local
+    *://localhost
+    *://localhost:*
+    *://my.mainsail.xyz
+    *://app.fluidd.xyz
+    *://10.0.1.22
+    *://10.0.1.51
+    *://10.0.1.51:7912
+
+[spoolman]
+server: http://10.0.1.51:7912
+sync_rate: 5
+
+[octoprint_compat]
+
+[history]
+
+[update_manager]
+channel: dev
+refresh_interval: 168
+
+[update_manager mainsail]
+path: /home/pi/mainsail
+repo: mainsail-crew/mainsail
+channel: stable
+type: web
+persistent_files:
+    config.json
+
+[update_manager mainsail-config]
+managed_services: klipper
+origin: https://github.com/mainsail-crew/mainsail-config.git
+path: /home/pi/mainsail-config
+primary_branch: master
+type: git_repo
+[update_manager crowsnest]
+type: git_repo
+path: ~/crowsnest
+origin: https://github.com/mainsail-crew/crowsnest.git
+primary_branch: v5
+managed_services: crowsnest
+system_dependencies: system-dependencies.json
+virtualenv: ~/crowsnest-env
+requirements: requirements.txt
+
+[update_manager cartographer_plugin]
+type: python
+channel: stable
+virtualenv: ~/klippy-env
+project_name: cartographer3d-plugin
+is_system_service: False
+managed_services: klipper
+info_tags: desc=Cartographer Plugin
+
+[update_manager Cartographer Firmware]
+type: git_repo
+path: ~/cartographer_firmware
+is_system_service: False
+origin: https://github.com/Cartographer3D/cartographer_firmware.git
+primary_branch: main
+
+## Klippain Shake&Tune automatic update management
+[update_manager Klippain-ShakeTune]
+type: git_repo
+origin: https://github.com/Frix-x/klippain-shaketune.git
+path: ~/klippain_shaketune
+virtualenv: /home/pi/klippy-env
+requirements: requirements.txt
+system_dependencies: system-dependencies.json
+primary_branch: main
+managed_services: klipper
+
+[update_manager klipper_tmc_autotune]
+type: git_repo
+channel: dev
+path: ~/klipper_tmc_autotune
+origin: https://github.com/andrewmcgr/klipper_tmc_autotune.git
+managed_services: klipper
+primary_branch: main
+install_script: install.sh
+[update_manager klipper-backup]
+type: git_repo
+path: ~/klipper-backup
+origin: https://github.com/Staubgeborener/klipper-backup.git
+managed_services: moonraker
+primary_branch: main
+[update_manager goose_purge]
+type: git_repo
+primary_branch: main
+path: ~/goose_purge_macro
+origin: https://github.com/Graylag-PD/Goose-Purge-Macro.git
+managed_services: klipper
+
+[update_manager happy-hare]
+type: git_repo
+path: /home/pi/Happy-Hare
+origin: https://github.com/moggieuk/Happy-Hare.git
+primary_branch: main
+managed_services: klipper
+
+[mmu_server]
+enable_file_preprocessor: True
+enable_toolchange_next_pos: True
+update_spoolman_location: True
+
+
+[update_manager KlipperScreen]
+type: git_repo
+path: ~/KlipperScreen
+origin: https://github.com/moggieuk/KlipperScreen-Happy-Hare-Edition.git
+env: ~/.KlipperScreen-env/bin/python
+requirements: scripts/KlipperScreen-requirements.txt
+install_script: scripts/KlipperScreen-install.sh
+managed_services: KlipperScreen
+
+
